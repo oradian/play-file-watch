@@ -20,11 +20,11 @@ lazy val `play-file-watch` = project
     // workaround for https://github.com/scala/scala-dev/issues/249
     scalacOptions in (Compile, doc) ++= (if (scalaBinaryVersion.value == "2.12") Seq("-no-java-comments") else Nil),
 
-    crossScalaVersions := Seq("2.10.7", "2.11.12", "2.12.8"),
+    crossScalaVersions := Seq("2.12.8"),
     libraryDependencies ++= Seq(
       "io.methvin" % "directory-watcher" % "0.9.6",
-      "com.github.pathikrit" %% "better-files" % pickVersion(scalaBinaryVersion.value, default = "2.17.1", forScala210 = "2.17.0"),
-      "org.specs2" %% "specs2-core" % pickVersion(scalaBinaryVersion.value, default = "4.3.5", forScala210 = "3.10.0") % Test,
+      "com.github.pathikrit" %% "better-files" % "3.8.0",
+      "org.specs2" %% "specs2-core" % "4.6.0" % Test,
 
       // jnotify dependency needs to be added explicitly in user's apps
       "com.lightbend.play" % "jnotify" % "0.94-play-2" % Test
